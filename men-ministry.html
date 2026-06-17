@@ -1,309 +1,714 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Men's Ministry | Growing Missionaries Centre</title>
-            <meta name="description" content="Men's Ministry at GMC - Equipping men to lead faithfully at home, in the church, and in the wider community." />
-            <meta name="theme-color" content="#0c0c14" />
-            <link rel="icon" type="image/png" href="Images/Logo.png" />
-            <link rel="preconnect" href="https://fonts.googleapis.com" />
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-            <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-            <link rel="stylesheet" href="styles.css" />
-            <style>        .ministry-hero {            position: relative;            height: 100vh;            display: flex;            align-items: center;            justify-content: center;            overflow: hidden;            margin-top: 0;        }        .ministry-hero-overlay {            position: absolute;            inset: 0;            background: linear-gradient(135deg, rgba(12, 12, 20, 0.65), rgba(212, 168, 85, 0.15));            z-index: 2;        }        .ministry-hero-video {            position: absolute;            inset: 0;            z-index: 1;        }        .ministry-hero-video video {            width: 100%;            height: 100%;            object-fit: cover;        }        .ministry-hero-content {            position: relative;            z-index: 3;            text-align: center;            color: white;            max-width: 800px;            padding: 0 24px;        }        .ministry-hero-badge {            display: inline-block;            padding: 10px 24px;            background: rgba(212, 168, 85, 0.2);            border: 1px solid rgba(212, 168, 85, 0.4);            border-radius: 50px;            font-size: 0.9rem;            font-weight: 600;            color: var(--gold);            margin-bottom: 24px;            animation: fadeInDown 0.8s ease;        }        .ministry-hero-title {            font-family: var(--font-display);            font-size: clamp(2.5rem, 8vw, 4rem);            font-weight: 900;            line-height: 1.1;            margin-bottom: 20px;            animation: fadeInUp 0.8s ease 0.1s backwards;        }        .ministry-hero-subtitle {            font-size: 1.3rem;            color: rgba(255, 255, 255, 0.85);            margin-bottom: 40px;            animation: fadeInUp 0.8s ease 0.2s backwards;        }        @keyframes fadeInDown {            from {                opacity: 0;                transform: translateY(-30px);            }            to {                opacity: 1;                transform: translateY(0);            }        }        @keyframes fadeInUp {            from {                opacity: 0;                transform: translateY(30px);            }            to {                opacity: 1;                transform: translateY(0);            }        }        .ministry-breadcrumb {            padding: 20px 0;            background: rgba(12, 12, 20, 0.8);            border-bottom: 1px solid rgba(212, 168, 85, 0.1);            position: sticky;            top: 80px;            z-index: 100;        }        .breadcrumb {            display: flex;            align-items: center;            gap: 12px;            max-width: 1200px;            margin: 0 auto;            padding: 0 24px;            font-size: 0.95rem;        }        .breadcrumb a {            color: var(--gold);            transition: var(--transition);        }        .breadcrumb a:hover {            color: var(--gold-light);        }        .breadcrumb .separator {            color: var(--text-muted);        }        .breadcrumb .current {            color: var(--text);        }        .ministry-content {            max-width: 1200px;            margin: 0 auto;            padding: 100px 24px;        }        .ministry-header {            max-width: 900px;            margin: 0 auto 80px;            text-align: center;        }        .ministry-header h2 {            font-family: var(--font-display);            font-size: clamp(2rem, 5vw, 3rem);            font-weight: 700;            color: white;            margin-bottom: 20px;        }        .ministry-header p {            font-size: 1.15rem;            color: var(--text-muted);            line-height: 1.8;        }        .ministry-section {            margin-bottom: 80px;        }        .ministry-section-title {            font-family: var(--font-display);            font-size: 2rem;            font-weight: 700;            color: white;            margin-bottom: 30px;            position: relative;            padding-bottom: 15px;        }        .ministry-section-title::after {            content: '';            position: absolute;            bottom: 0;            left: 0;            width: 60px;            height: 3px;            background: var(--gold);            border-radius: 2px;        }        .ministry-section-content {            color: var(--text-muted);            line-height: 1.9;            font-size: 1.05rem;        }        .ministry-list {            display: grid;            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));            gap: 30px;            margin: 40px 0;        }        .ministry-list-item {            padding: 30px;            background: linear-gradient(135deg, rgba(30, 30, 50, 0.6), rgba(18, 18, 30, 0.6));            border: 1px solid rgba(212, 168, 85, 0.2);            border-radius: var(--radius-lg);            transition: var(--transition);        }        .ministry-list-item:hover {            transform: translateY(-8px);            border-color: rgba(212, 168, 85, 0.4);            background: linear-gradient(135deg, rgba(30, 30, 50, 0.8), rgba(18, 18, 30, 0.8));        }        .ministry-list-item h4 {            color: var(--gold);            font-size: 1.2rem;            margin-bottom: 12px;            font-weight: 700;        }        .ministry-list-item p {            color: var(--text-muted);            font-size: 0.95rem;            line-height: 1.7;        }        .ministry-cta {            max-width: 600px;            margin: 100px auto;            padding: 50px;            background: linear-gradient(135deg, rgba(212, 168, 85, 0.1), rgba(212, 168, 85, 0.05));            border: 1px solid rgba(212, 168, 85, 0.3);            border-radius: var(--radius-lg);            text-align: center;        }        .ministry-cta h3 {            color: white;            font-size: 1.8rem;            margin-bottom: 15px;        }        .ministry-cta p {            color: var(--text-muted);            margin-bottom: 30px;            line-height: 1.8;        }        .ministry-back-btn {            display: inline-block;            margin-top: 30px;            padding: 12px 32px;            background: var(--gold);            color: var(--dark);            border: none;            border-radius: 8px;            font-weight: 600;            cursor: pointer;            text-decoration: none;            transition: var(--transition);        }        .ministry-back-btn:hover {            background: var(--gold-light);            transform: translateY(-3px);        }        .scripture-highlight {            margin: 40px 0;            padding: 30px;            background: rgba(212, 168, 85, 0.08);            border-left: 4px solid var(--gold);            border-radius: 8px;            font-style: italic;            font-family: var(--font-quote);            color: var(--text);            font-size: 1.15rem;            line-height: 1.8;        }        .ministry-image-gallery {            display: grid;            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));            gap: 20px;            margin: 60px 0;        }        .ministry-image-gallery img {            width: 100%;            height: 280px;            object-fit: cover;            border-radius: var(--radius-lg);            border: 1px solid rgba(212, 168, 85, 0.2);            transition: transform 0.6s ease, border-color 0.6s ease;            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);        }        .ministry-image-gallery img:hover {            transform: scale(1.03);            border-color: rgba(212, 168, 85, 0.5);        }        .ministry-single-image {            margin: 60px 0;            border-radius: var(--radius-lg);            overflow: hidden;            border: 1px solid rgba(212, 168, 85, 0.2);            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);        }        .ministry-single-image img {            width: 100%;            height: 400px;            object-fit: cover;            display: block;            transition: transform 0.6s ease;        }        .ministry-single-image:hover img {            transform: scale(1.02);        }    </style>
-            </head>
-            <body>
-                <a href="#mainContent" class="skip-link">Skip to content</a>
-                    <!-- ACTION BAR -->
-                    <div class="action-bar" id="actionBar">
-                        <div class="action-bar-container">
-                            <div class="contact-details">
-                                <div class="contact-item">
-                                    <i class="fas fa-phone"></i>
-                                        <a href="tel:+254727982178">+254 727 982 178</a>
-                                        </div>
-                                        <div class="contact-item">
-                                            <i class="fas fa-envelope"></i>
-                                                <a href="mailto:growingmissionaries32@gmail.com">growingmissionaries32@gmail.com</a>
-                                                </div>
-                                            </div>
-                                            <div class="social-links">
-                                                <a href="#" aria-label="Facebook">
-                                                    <i class="fab fa-facebook-f"></i>
-                                                    </a>
-                                                    <a href="https://www.youtube.com/results?search_query=Growing+Missionaries+Centre" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                                                        <i class="fab fa-youtube"></i>
-                                                        </a>
-                                                        <a href="#" aria-label="Instagram">
-                                                            <i class="fab fa-instagram"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- NAVBAR -->
-                                                <nav class="navbar" id="navbar">
-                                                    <div class="nav-container">
-                                                        <a href="index.html" class="nav-logo">
-                                                            <img src="Images/Logo.png" alt="GMC Logo" class="logo-img" />
-                                                            <div class="logo-text">
-                                                                <span class="logo-title">Growing Missionaries</span>
-                                                                    <span class="logo-subtitle">Centre</span>
-                                                                    </div>
-                                                                </a>
-                                                                <button class="nav-toggle" id="navToggle" type="button" aria-label="Open navigation" aria-controls="navLinks" aria-expanded="false">
-                                                                    <span></span>
-                                                                        <span></span>
-                                                                            <span></span>
-                                                                            </button>
-                                                                            <ul class="nav-links" id="navLinks">
-                                                                                <li>
-                                                                                    <a href="index.html" class="nav-link">Home</a>
-                                                                                    </li>
-                                                                                    <li>
-                                                                                        <a href="index.html#about" class="nav-link">About</a>
-                                                                                        </li>
-                                                                                        <li class="dropdown">
-                                                                                            <a href="#" class="nav-link">Ministries
-                                                                                                <i class="fas fa-chevron-down"></i>
-                                                                                                </a>
-                                                                                                <ul class="dropdown-menu">
-                                                                                                    <li>
-                                                                                                        <a href="children-ministry.html">Children's Ministry</a>
-                                                                                                        </li>
-                                                                                                        <li>
-                                                                                                            <a href="youth-ministry.html">Youth Ministry</a>
-                                                                                                            </li>
-                                                                                                            <li>
-                                                                                                                <a href="women-ministry.html">Women's Ministry</a>
-                                                                                                                </li>
-                                                                                                                <li>
-                                                                                                                    <a href="men-ministry.html">Men's Ministry</a>
-                                                                                                                    </li>
-                                                                                                                    <li>
-                                                                                                                        <a href="worship-ministry.html">Worship Ministry</a>
-                                                                                                                        </li>
-                                                                                                                        <li>
-                                                                                                                            <a href="prayer-ministry.html">Prayer & Intercession</a>
-                                                                                                                            </li>
-                                                                                                                            <li>
-                                                                                                                                <a href="missions-ministry.html">Missions & Outreach</a>
-                                                                                                                                </li>
-                                                                                                                            </ul>
-                                                                                                                        </li>
-                                                                                                                        <li>
-                                                                                                                            <a href="index.html#services" class="nav-link">Services</a>
-                                                                                                                            </li>
-                                                                                                                            <li>
-                                                                                                                                <a href="index.html#branches" class="nav-link">Branches</a>
-                                                                                                                                </li>
-                                                                                                                                <li>
-                                                                                                                                    <a href="index.html#give" class="nav-link">Give</a>
-                                                                                                                                    </li>
-                                                                                                                                    <li>
-                                                                                                                                        <a href="index.html#contact" class="nav-link nav-cta">Contact</a>
-                                                                                                                                        </li>
-                                                                                                                                    </ul>
-                                                                                                                                </div>
-                                                                                                                            </nav>
-                                                                                                                            <!-- BREADCRUMB -->
-                                                                                                                            <div class="ministry-breadcrumb">
-                                                                                                                                <div class="container">
-                                                                                                                                    <div class="breadcrumb">
-                                                                                                                                        <a href="index.html">Home</a>
-                                                                                                                                            <span class="separator">/</span>
-                                                                                                                                                <a href="index.html#ministries">Ministries</a>
-                                                                                                                                                    <span class="separator">/</span>
-                                                                                                                                                        <span class="current">Men's Ministry</span>
-                                                                                                                                                        </div>
-                                                                                                                                                    </div>
-                                                                                                                                                </div>
-                                                                                                                                                <!-- HERO SECTION -->
-                                                                                                                                                <main id="mainContent">
-                                                                                                                                                    <section class="ministry-hero" id="hero">
-                                                                                                                                                        <div class="ministry-hero-overlay"></div>
-                                                                                                                                                            <div class="ministry-hero-video">
-                                                                                                                                                                <video autoplay muted loop playsinline poster="Images/Logo.png">
-                                                                                                                                                                    <source src="https://res.cloudinary.com/dri60cqs8/video/upload/v1779867254/3_vtbc7p.mp4" type="video/mp4" />
-                                                                                                                                                                </video>
-                                                                                                                                                            </div>
-                                                                                                                                                            <div class="ministry-hero-content">
-                                                                                                                                                                <div class="ministry-hero-badge">
-                                                                                                                                                                    <i class="fas fa-user-tie"></i>
-                                                                                                                                                                        Ministry Focus            </div>
-                                                                                                                                                                        <h1 class="ministry-hero-title">                Men's
-                                                                                                                                                                            <span class="gold-text">Ministry</span>
-                                                                                                                                                                            </h1>
-                                                                                                                                                                            <p class="ministry-hero-subtitle">                "Be watchful, stand firm in the faith, act like men, be strong." - 1 Corinthians 16:13            </p>
-                                                                                                                                                                            </div>
-                                                                                                                                                                        </section>
-                                                                                                                                                                        <!-- CONTENT SECTION -->
-                                                                                                                                                                        <section class="section">
-                                                                                                                                                                            <div class="ministry-content">
-                                                                                                                                                                                <!-- Overview -->
-                                                                                                                                                                                <div class="ministry-header">
-                                                                                                                                                                                    <h2>Men Called to Lead with Faith and Integrity</h2>
-                                                                                                                                                                                        <p>                    Our Men's Ministry equips men to live out their faith with strength and conviction. We provide a supportive community where men can grow spiritually, develop godly character, and step into their calling as husbands, fathers, leaders, and disciples of Jesus Christ.                </p>
-                                                                                                                                                                                        </div>
-                                                                                                                                                                                        <!-- Vision -->
-                                                                                                                                                                                        <div class="ministry-section">
-                                                                                                                                                                                            <h3 class="ministry-section-title">Our Vision</h3>
-                                                                                                                                                                                                <div class="ministry-section-content">
-                                                                                                                                                                                                    <p>                        We believe men play a crucial role in their families, churches, and communities. Our vision is to cultivate a generation of God-fearing men who are spiritually mature, morally upright, and committed to serving others with purpose and integrity. We aim to help each man discover his unique calling and live it with courage.                    </p>
-                                                                                                                                                                                                        <div class="scripture-highlight">                        "Therefore, as God's chosen people, holy and dearly loved, clothe yourselves with compassion, kindness, humility, gentleness and patience." - Colossians 3:12                    </div>
-                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                    <!-- Core Activities -->
-                                                                                                                                                                                                    <div class="ministry-section">
-                                                                                                                                                                                                        <h3 class="ministry-section-title">What We Offer</h3>
-                                                                                                                                                                                                            <div class="ministry-list">
-                                                                                                                                                                                                                <div class="ministry-list-item">
-                                                                                                                                                                                                                    <h4>
-                                                                                                                                                                                                                        <i class="fas fa-handshake"></i>
-                                                                                                                                                                                                                            Men's Fellowship</h4>
-                                                                                                                                                                                                                            <p>Regular gatherings for worship, discipleship, and meaningful conversation in an atmosphere of brotherhood and accountability.</p>
-                                                                                                                                                                                                                            </div>
-                                                                                                                                                                                                                            <div class="ministry-list-item">
-                                                                                                                                                                                                                                <h4>
-                                                                                                                                                                                                                                    <i class="fas fa-home"></i>
-                                                                                                                                                                                                                                        Family Leadership</h4>
-                                                                                                                                                                                                                                        <p>Teaching and support for men to lead their families spiritually, serve as loving husbands, and raise godly children.</p>
-                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                        <div class="ministry-list-item">
-                                                                                                                                                                                                                                            <h4>
-                                                                                                                                                                                                                                                <i class="fas fa-book"></i>
-                                                                                                                                                                                                                                                    Biblical Discipleship</h4>
-                                                                                                                                                                                                                                                    <p>Deep study of God's word and practical application to develop mature Christian character and integrity.</p>
-                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                    <div class="ministry-list-item">
-                                                                                                                                                                                                                                                        <h4>
-                                                                                                                                                                                                                                                            <i class="fas fa-users"></i>
-                                                                                                                                                                                                                                                                Mentoring & Accountability</h4>
-                                                                                                                                                                                                                                                                <p>One-on-one mentoring and accountability groups where men support each other in their spiritual journey.</p>
-                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                <div class="ministry-list-item">
-                                                                                                                                                                                                                                                                    <h4>
-                                                                                                                                                                                                                                                                        <i class="fas fa-hammer"></i>
-                                                                                                                                                                                                                                                                            Service & Action</h4>
-                                                                                                                                                                                                                                                                            <p>Hands-on service projects that demonstrate Christ's love through practical work in the church and community.</p>
-                                                                                                                                                                                                                                                                            </div>
-                                                                                                                                                                                                                                                                            <div class="ministry-list-item">
-                                                                                                                                                                                                                                                                                <h4>
-                                                                                                                                                                                                                                                                                    <i class="fas fa-mountain"></i>
-                                                                                                                                                                                                                                                                                        Events & Retreats</h4>
-                                                                                                                                                                                                                                                                                        <p>Retreats, conferences, and activities that refresh the soul, strengthen bonds, and deepen faith.</p>
-                                                                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                                <!-- Ministry Gallery -->
-                                                                                                                                                                                                                                                                                <div class="ministry-image-gallery">
-                                                                                                                                                                                                                                                                                    <img src="Images/ministries/men ministry.JPG" alt="Men's Ministry gathering" loading="lazy" />
-                                                                                                                                                                                                                                                                                    <img src="Images/ministries/men ministry 2.JPG" alt="Men's Ministry fellowship" loading="lazy" />
-                                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                                <!-- Schedule & Involvement -->
-                                                                                                                                                                                                                                                                                <div class="ministry-section">
-                                                                                                                                                                                                                                                                                    <h3 class="ministry-section-title">How to Get Involved</h3>
-                                                                                                                                                                                                                                                                                        <div class="ministry-section-content">
-                                                                                                                                                                                                                                                                                            <p>                        Men's Ministry welcomes men of all ages - from young adults to seasoned believers. We meet regularly for fellowship, prayer, and study. Whether you're just beginning your faith journey or you've walked with God for years, you'll find brothers committed to encouraging and challenging you to grow in your faith and fulfill your God-given purpose.                    </p>
-                                                                                                                                                                                                                                                                                            </div>
-                                                                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                                                                        <!-- Call to Action -->
-                                                                                                                                                                                                                                                                                        <div class="ministry-cta">
-                                                                                                                                                                                                                                                                                            <h3>Ready to Join?</h3>
-                                                                                                                                                                                                                                                                                                <p>Connect with men who are committed to living boldly for Christ and making a lasting impact in their families and communities.</p>
-                                                                                                                                                                                                                                                                                                    <a href="index.html#contact" class="btn btn-primary">Get in Touch</a>
-                                                                                                                                                                                                                                                                                                        <a href="index.html" class="ministry-back-btn">Back to Home</a>
-                                                                                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                                                </section>
-                                                                                                                                                                                                                                                                                            </main>
-                                                                                                                                                                                                                                                                                            <!-- FOOTER -->
-                                                                                                                                                                                                                                                                                            <footer class="footer">
-                                                                                                                                                                                                                                                                                                <div class="container">
-                                                                                                                                                                                                                                                                                                    <div class="footer-grid">
-                                                                                                                                                                                                                                                                                                        <div class="footer-brand">
-                                                                                                                                                                                                                                                                                                            <img src="Images/Logo.png" alt="GMC Logo" class="footer-logo" />
-                                                                                                                                                                                                                                                                                                            <h3>Growing Missionaries Centre</h3>
-                                                                                                                                                                                                                                                                                                                <p>Rescue. Recover. Restore.</p>
-                                                                                                                                                                                                                                                                                                                    <p class="footer-address">P.O. BOX 4-40414, ISEBANIA-KENYA, EAST AFRICA</p>
-                                                                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                                                                    <div class="footer-links">
-                                                                                                                                                                                                                                                                                                                        <h4>Quick Links</h4>
-                                                                                                                                                                                                                                                                                                                            <ul>
-                                                                                                                                                                                                                                                                                                                                <li>
-                                                                                                                                                                                                                                                                                                                                    <a href="index.html">Home</a>
-                                                                                                                                                                                                                                                                                                                                    </li>
-                                                                                                                                                                                                                                                                                                                                    <li>
-                                                                                                                                                                                                                                                                                                                                        <a href="index.html#about">About Us</a>
-                                                                                                                                                                                                                                                                                                                                        </li>
-                                                                                                                                                                                                                                                                                                                                        <li>
-                                                                                                                                                                                                                                                                                                                                            <a href="index.html#ministries">Ministries</a>
-                                                                                                                                                                                                                                                                                                                                            </li>
-                                                                                                                                                                                                                                                                                                                                            <li>
-                                                                                                                                                                                                                                                                                                                                                <a href="index.html#services">Services</a>
-                                                                                                                                                                                                                                                                                                                                                </li>
-                                                                                                                                                                                                                                                                                                                                                <li>
-                                                                                                                                                                                                                                                                                                                                                    <a href="index.html#give">Give</a>
-                                                                                                                                                                                                                                                                                                                                                    </li>
-                                                                                                                                                                                                                                                                                                                                                </ul>
-                                                                                                                                                                                                                                                                                                                                            </div>
-                                                                                                                                                                                                                                                                                                                                            <div class="footer-links">
-                                                                                                                                                                                                                                                                                                                                                <h4>All Ministries</h4>
-                                                                                                                                                                                                                                                                                                                                                    <ul>
-                                                                                                                                                                                                                                                                                                                                                        <li>
-                                                                                                                                                                                                                                                                                                                                                            <a href="children-ministry.html">Children</a>
-                                                                                                                                                                                                                                                                                                                                                            </li>
-                                                                                                                                                                                                                                                                                                                                                            <li>
-                                                                                                                                                                                                                                                                                                                                                                <a href="youth-ministry.html">Youth</a>
-                                                                                                                                                                                                                                                                                                                                                                </li>
-                                                                                                                                                                                                                                                                                                                                                                <li>
-                                                                                                                                                                                                                                                                                                                                                                    <a href="women-ministry.html">Women</a>
-                                                                                                                                                                                                                                                                                                                                                                    </li>
-                                                                                                                                                                                                                                                                                                                                                                    <li>
-                                                                                                                                                                                                                                                                                                                                                                        <a href="men-ministry.html">Men</a>
-                                                                                                                                                                                                                                                                                                                                                                        </li>
-                                                                                                                                                                                                                                                                                                                                                                        <li>
-                                                                                                                                                                                                                                                                                                                                                                            <a href="worship-ministry.html">Worship</a>
-                                                                                                                                                                                                                                                                                                                                                                            </li>
-                                                                                                                                                                                                                                                                                                                                                                        </ul>
-                                                                                                                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                                                                                                                    <div class="footer-hours">
-                                                                                                                                                                                                                                                                                                                                                                        <h4>Service Times</h4>
-                                                                                                                                                                                                                                                                                                                                                                            <p>
-                                                                                                                                                                                                                                                                                                                                                                                <strong>Sunday:</strong>
-                                                                                                                                                                                                                                                                                                                                                                                    9:00 AM</p>
-                                                                                                                                                                                                                                                                                                                                                                                    <p>
-                                                                                                                                                                                                                                                                                                                                                                                        <strong>Wednesday:</strong>
-                                                                                                                                                                                                                                                                                                                                                                                            7:00 PM</p>
-                                                                                                                                                                                                                                                                                                                                                                                            <p>
-                                                                                                                                                                                                                                                                                                                                                                                                <strong>Saturday:</strong>
-                                                                                                                                                                                                                                                                                                                                                                                                    5:00 PM</p>
-                                                                                                                                                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                                                                                                                                            </div>
-                                                                                                                                                                                                                                                                                                                                                                                            <div class="footer-bottom">
-                                                                                                                                                                                                                                                                                                                                                                                                <p>&copy;
-                                                                                                                                                                                                                                                                                                                                                                                                    <span id="currentYear">2026</span>
-                                                                                                                                                                                                                                                                                                                                                                                                        Growing Missionaries Centre. All rights reserved.</p>
-                                                                                                                                                                                                                                                                                                                                                                                                        <div class="footer-social">
-                                                                                                                                                                                                                                                                                                                                                                                                            <a href="#" aria-label="Facebook">
-                                                                                                                                                                                                                                                                                                                                                                                                                <i class="fab fa-facebook-f"></i>
-                                                                                                                                                                                                                                                                                                                                                                                                                </a>
-                                                                                                                                                                                                                                                                                                                                                                                                                <a href="https://www.youtube.com/results?search_query=Growing+Missionaries+Centre" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="fab fa-youtube"></i>
-                                                                                                                                                                                                                                                                                                                                                                                                                    </a>
-                                                                                                                                                                                                                                                                                                                                                                                                                    <a href="#" aria-label="Instagram">
-                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="fab fa-instagram"></i>
-                                                                                                                                                                                                                                                                                                                                                                                                                        </a>
-                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                                                                                                                                                            </div>
-                                                                                                                                                                                                                                                                                                                                                                                                        </footer>
-                                                                                                                                                                                                                                                                                                                                                                                                        <!-- Back to Top -->
-                                                                                                                                                                                                                                                                                                                                                                                                        <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
-                                                                                                                                                                                                                                                                                                                                                                                                            <i class="fas fa-chevron-up"></i>
-                                                                                                                                                                                                                                                                                                                                                                                                            </button>
-                                                                                                                                                                                                                                                                                                                                                                                                            <script src="script.js" defer></script>
-                                                                                                                                                                                                                                                                                                                                                                                                                <script>        document.getElementById('currentYear').textContent = new Date().getFullYear();    </script>
-                                                                                                                                                                                                                                                                                                                                                                                                                </body>
-                                                                                                                                                                                                                                                                                                                                                                                                            </html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Men's Ministry | Growing Missionaries Centre</title>
+    <meta
+      name="description"
+      content="Men's Ministry at GMC - Equipping men to lead faithfully at home, in the church, and in the wider community."
+    />
+    <meta name="theme-color" content="#0c0c14" />
+    <link rel="icon" type="image/png" href="Images/Logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .ministry-hero {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        margin-top: 0;
+      }
+      .ministry-hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(12, 12, 20, 0.65),
+          rgba(212, 168, 85, 0.15)
+        );
+        z-index: 2;
+      }
+      .ministry-hero-video {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+      }
+      .ministry-hero-video video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .ministry-hero-content {
+        position: relative;
+        z-index: 3;
+        text-align: center;
+        color: white;
+        max-width: 800px;
+        padding: 0 24px;
+      }
+      .ministry-hero-badge {
+        display: inline-block;
+        padding: 10px 24px;
+        background: rgba(212, 168, 85, 0.2);
+        border: 1px solid rgba(212, 168, 85, 0.4);
+        border-radius: 50px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--gold);
+        margin-bottom: 24px;
+        animation: fadeInDown 0.8s ease;
+      }
+      .ministry-hero-title {
+        font-family: var(--font-display);
+        font-size: clamp(2.5rem, 8vw, 4rem);
+        font-weight: 900;
+        line-height: 1.1;
+        margin-bottom: 20px;
+        animation: fadeInUp 0.8s ease 0.1s backwards;
+      }
+      .ministry-hero-subtitle {
+        font-size: 1.3rem;
+        color: rgba(255, 255, 255, 0.85);
+        margin-bottom: 40px;
+        animation: fadeInUp 0.8s ease 0.2s backwards;
+      }
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .ministry-breadcrumb {
+        padding: 20px 0;
+        background: rgba(12, 12, 20, 0.8);
+        border-bottom: 1px solid rgba(212, 168, 85, 0.1);
+        position: sticky;
+        top: 80px;
+        z-index: 100;
+      }
+      .breadcrumb {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        font-size: 0.95rem;
+      }
+      .breadcrumb a {
+        color: var(--gold);
+        transition: var(--transition);
+      }
+      .breadcrumb a:hover {
+        color: var(--gold-light);
+      }
+      .breadcrumb .separator {
+        color: var(--text-muted);
+      }
+      .breadcrumb .current {
+        color: var(--text);
+      }
+      .ministry-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 100px 24px;
+      }
+      .ministry-header {
+        max-width: 900px;
+        margin: 0 auto 80px;
+        text-align: center;
+      }
+      .ministry-header h2 {
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 700;
+        color: white;
+        margin-bottom: 20px;
+      }
+      .ministry-header p {
+        font-size: 1.15rem;
+        color: var(--text-muted);
+        line-height: 1.8;
+      }
+      .ministry-section {
+        margin-bottom: 80px;
+      }
+      .ministry-section-title {
+        font-family: var(--font-display);
+        font-size: 2rem;
+        font-weight: 700;
+        color: white;
+        margin-bottom: 30px;
+        position: relative;
+        padding-bottom: 15px;
+      }
+      .ministry-section-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background: var(--gold);
+        border-radius: 2px;
+      }
+      .ministry-section-content {
+        color: var(--text-muted);
+        line-height: 1.9;
+        font-size: 1.05rem;
+      }
+      .ministry-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        margin: 40px 0;
+      }
+      .ministry-list-item {
+        padding: 30px;
+        background: linear-gradient(
+          135deg,
+          rgba(30, 30, 50, 0.6),
+          rgba(18, 18, 30, 0.6)
+        );
+        border: 1px solid rgba(212, 168, 85, 0.2);
+        border-radius: var(--radius-lg);
+        transition: var(--transition);
+      }
+      .ministry-list-item:hover {
+        transform: translateY(-8px);
+        border-color: rgba(212, 168, 85, 0.4);
+        background: linear-gradient(
+          135deg,
+          rgba(30, 30, 50, 0.8),
+          rgba(18, 18, 30, 0.8)
+        );
+      }
+      .ministry-list-item h4 {
+        color: var(--gold);
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+        font-weight: 700;
+      }
+      .ministry-list-item p {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        line-height: 1.7;
+      }
+      .ministry-cta {
+        max-width: 600px;
+        margin: 100px auto;
+        padding: 50px;
+        background: linear-gradient(
+          135deg,
+          rgba(212, 168, 85, 0.1),
+          rgba(212, 168, 85, 0.05)
+        );
+        border: 1px solid rgba(212, 168, 85, 0.3);
+        border-radius: var(--radius-lg);
+        text-align: center;
+      }
+      .ministry-cta h3 {
+        color: white;
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+      }
+      .ministry-cta p {
+        color: var(--text-muted);
+        margin-bottom: 30px;
+        line-height: 1.8;
+      }
+      .ministry-back-btn {
+        display: inline-block;
+        margin-top: 30px;
+        padding: 12px 32px;
+        background: var(--gold);
+        color: var(--dark);
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition: var(--transition);
+      }
+      .ministry-back-btn:hover {
+        background: var(--gold-light);
+        transform: translateY(-3px);
+      }
+      .scripture-highlight {
+        margin: 40px 0;
+        padding: 30px;
+        background: rgba(212, 168, 85, 0.08);
+        border-left: 4px solid var(--gold);
+        border-radius: 8px;
+        font-style: italic;
+        font-family: var(--font-quote);
+        color: var(--text);
+        font-size: 1.15rem;
+        line-height: 1.8;
+      }
+      .ministry-image-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin: 60px 0;
+      }
+      .ministry-image-gallery img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        border-radius: var(--radius-lg);
+        border: 1px solid rgba(212, 168, 85, 0.2);
+        transition:
+          transform 0.6s ease,
+          border-color 0.6s ease;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      }
+      .ministry-image-gallery img:hover {
+        transform: scale(1.03);
+        border-color: rgba(212, 168, 85, 0.5);
+      }
+      .ministry-single-image {
+        margin: 60px 0;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        border: 1px solid rgba(212, 168, 85, 0.2);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      }
+      .ministry-single-image img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.6s ease;
+      }
+      .ministry-single-image:hover img {
+        transform: scale(1.02);
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#mainContent" class="skip-link">Skip to content</a>
+    <!-- ACTION BAR -->
+    <div class="action-bar" id="actionBar">
+      <div class="action-bar-container">
+        <div class="contact-details">
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <a href="tel:+254727982178">+254 727 982 178</a>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:growingmissionaries32@gmail.com"
+              >growingmissionaries32@gmail.com</a
+            >
+          </div>
+        </div>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a
+            href="https://www.youtube.com/results?search_query=Growing+Missionaries+Centre"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="YouTube"
+          >
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+          <img src="Images/Logo.png" alt="GMC Logo" class="logo-img" />
+          <div class="logo-text">
+            <span class="logo-title">Growing Missionaries</span>
+            <span class="logo-subtitle">Centre</span>
+          </div>
+        </a>
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          type="button"
+          aria-label="Open navigation"
+          aria-controls="navLinks"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li>
+            <a href="index.html" class="nav-link">Home</a>
+          </li>
+          <li>
+            <a href="index.html#about" class="nav-link">About</a>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="nav-link"
+              >Ministries
+              <i class="fas fa-chevron-down"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="children-ministry.html">Children's Ministry</a>
+              </li>
+              <li>
+                <a href="youth-ministry.html">Youth Ministry</a>
+              </li>
+              <li>
+                <a href="women-ministry.html">Women's Ministry</a>
+              </li>
+              <li>
+                <a href="men-ministry.html">Men's Ministry</a>
+              </li>
+              <li>
+                <a href="worship-ministry.html">Worship Ministry</a>
+              </li>
+              <li>
+                <a href="prayer-ministry.html">Prayer & Intercession</a>
+              </li>
+              <li>
+                <a href="missions-ministry.html">Missions & Outreach</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="index.html#services" class="nav-link">Services</a>
+          </li>
+          <li>
+            <a href="index.html#branches" class="nav-link">Branches</a>
+          </li>
+          <li>
+            <a href="index.html#give" class="nav-link">Give</a>
+          </li>
+          <li>
+            <a href="index.html#contact" class="nav-link nav-cta">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- BREADCRUMB -->
+    <div class="ministry-breadcrumb">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="separator">/</span>
+          <a href="index.html#ministries">Ministries</a>
+          <span class="separator">/</span>
+          <span class="current">Men's Ministry</span>
+        </div>
+      </div>
+    </div>
+    <!-- HERO SECTION -->
+    <main id="mainContent">
+      <section class="ministry-hero" id="hero">
+        <div class="ministry-hero-overlay"></div>
+        <div class="ministry-hero-video">
+          <video autoplay muted loop playsinline poster="Images/Logo.png">
+            <source
+              src="https://res.cloudinary.com/dri60cqs8/video/upload/v1780821212/3_euvkhy.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </div>
+        <div class="ministry-hero-content">
+          <div class="ministry-hero-badge">
+            <i class="fas fa-user-tie"></i>
+            Ministry Focus
+          </div>
+          <h1 class="ministry-hero-title">
+            Men's
+            <span class="gold-text">Ministry</span>
+          </h1>
+          <p class="ministry-hero-subtitle">
+            "Be watchful, stand firm in the faith, act like men, be strong." - 1
+            Corinthians 16:13
+          </p>
+        </div>
+      </section>
+      <!-- CONTENT SECTION -->
+      <section class="section">
+        <div class="ministry-content">
+          <!-- Overview -->
+          <div class="ministry-header">
+            <h2>Men Called to Lead with Faith and Integrity</h2>
+            <p>
+              Our Men's Ministry equips men to live out their faith with
+              strength and conviction. We provide a supportive community where
+              men can grow spiritually, develop godly character, and step into
+              their calling as husbands, fathers, leaders, and disciples of
+              Jesus Christ.
+            </p>
+          </div>
+          <!-- Vision -->
+          <div class="ministry-section">
+            <h3 class="ministry-section-title">Our Vision</h3>
+            <div class="ministry-section-content">
+              <p>
+                We believe men play a crucial role in their families, churches,
+                and communities. Our vision is to cultivate a generation of
+                God-fearing men who are spiritually mature, morally upright, and
+                committed to serving others with purpose and integrity. We aim
+                to help each man discover his unique calling and live it with
+                courage.
+              </p>
+              <div class="scripture-highlight">
+                "Therefore, as God's chosen people, holy and dearly loved,
+                clothe yourselves with compassion, kindness, humility,
+                gentleness and patience." - Colossians 3:12
+              </div>
+            </div>
+          </div>
+          <!-- Core Activities -->
+          <div class="ministry-section">
+            <h3 class="ministry-section-title">What We Offer</h3>
+            <div class="ministry-list">
+              <div class="ministry-list-item">
+                <h4>
+                  <i class="fas fa-handshake"></i>
+                  Men's Fellowship
+                </h4>
+                <p>
+                  Regular gatherings for worship, discipleship, and meaningful
+                  conversation in an atmosphere of brotherhood and
+                  accountability.
+                </p>
+              </div>
+              <div class="ministry-list-item">
+                <h4>
+                  <i class="fas fa-home"></i>
+                  Family Leadership
+                </h4>
+                <p>
+                  Teaching and support for men to lead their families
+                  spiritually, serve as loving husbands, and raise godly
+                  children.
+                </p>
+              </div>
+              <div class="ministry-list-item">
+                <h4>
+                  <i class="fas fa-book"></i>
+                  Biblical Discipleship
+                </h4>
+                <p>
+                  Deep study of God's word and practical application to develop
+                  mature Christian character and integrity.
+                </p>
+              </div>
+              <div class="ministry-list-item">
+                <h4>
+                  <i class="fas fa-users"></i>
+                  Mentoring & Accountability
+                </h4>
+                <p>
+                  One-on-one mentoring and accountability groups where men
+                  support each other in their spiritual journey.
+                </p>
+              </div>
+              <div class="ministry-list-item">
+                <h4>
+                  <i class="fas fa-hammer"></i>
+                  Service & Action
+                </h4>
+                <p>
+                  Hands-on service projects that demonstrate Christ's love
+                  through practical work in the church and community.
+                </p>
+              </div>
+              <div class="ministry-list-item">
+                <h4>
+                  <i class="fas fa-mountain"></i>
+                  Events & Retreats
+                </h4>
+                <p>
+                  Retreats, conferences, and activities that refresh the soul,
+                  strengthen bonds, and deepen faith.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Ministry Gallery -->
+          <div class="ministry-image-gallery">
+            <img
+              src="Images/ministries/men ministry.JPG"
+              alt="Men's Ministry gathering"
+              loading="lazy"
+            />
+            <img
+              src="Images/ministries/men ministry 2.JPG"
+              alt="Men's Ministry fellowship"
+              loading="lazy"
+            />
+          </div>
+          <!-- Schedule & Involvement -->
+          <div class="ministry-section">
+            <h3 class="ministry-section-title">How to Get Involved</h3>
+            <div class="ministry-section-content">
+              <p>
+                Men's Ministry welcomes men of all ages - from young adults to
+                seasoned believers. We meet regularly for fellowship, prayer,
+                and study. Whether you're just beginning your faith journey or
+                you've walked with God for years, you'll find brothers committed
+                to encouraging and challenging you to grow in your faith and
+                fulfill your God-given purpose.
+              </p>
+            </div>
+          </div>
+          <!-- Call to Action -->
+          <div class="ministry-cta">
+            <h3>Ready to Join?</h3>
+            <p>
+              Connect with men who are committed to living boldly for Christ and
+              making a lasting impact in their families and communities.
+            </p>
+            <a href="index.html#contact" class="btn btn-primary"
+              >Get in Touch</a
+            >
+            <a href="index.html" class="ministry-back-btn">Back to Home</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <img src="Images/Logo.png" alt="GMC Logo" class="footer-logo" />
+            <h3>Growing Missionaries Centre</h3>
+            <p>Rescue. Recover. Restore.</p>
+            <p class="footer-address">
+              P.O. BOX 4-40414, ISEBANIA-KENYA, EAST AFRICA
+            </p>
+          </div>
+          <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li>
+                <a href="index.html">Home</a>
+              </li>
+              <li>
+                <a href="index.html#about">About Us</a>
+              </li>
+              <li>
+                <a href="index.html#ministries">Ministries</a>
+              </li>
+              <li>
+                <a href="index.html#services">Services</a>
+              </li>
+              <li>
+                <a href="index.html#give">Give</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>All Ministries</h4>
+            <ul>
+              <li>
+                <a href="children-ministry.html">Children</a>
+              </li>
+              <li>
+                <a href="youth-ministry.html">Youth</a>
+              </li>
+              <li>
+                <a href="women-ministry.html">Women</a>
+              </li>
+              <li>
+                <a href="men-ministry.html">Men</a>
+              </li>
+              <li>
+                <a href="worship-ministry.html">Worship</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-hours">
+            <h4>Service Times</h4>
+            <p>
+              <strong>Sunday:</strong>
+              9:00 AM
+            </p>
+            <p>
+              <strong>Wednesday:</strong>
+              7:00 PM
+            </p>
+            <p>
+              <strong>Saturday:</strong>
+              5:00 PM
+            </p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy;
+            <span id="currentYear">2026</span>
+            Growing Missionaries Centre. All rights reserved.
+          </p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a
+              href="https://www.youtube.com/results?search_query=Growing+Missionaries+Centre"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+            >
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Back to Top -->
+    <button
+      class="back-to-top"
+      id="backToTop"
+      type="button"
+      aria-label="Back to top"
+    >
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <script src="script.js" defer></script>
+    <script>
+      document.getElementById("currentYear").textContent =
+        new Date().getFullYear();
+    </script>
+  </body>
+</html>

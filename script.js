@@ -214,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 message
             ].join('\n');
 
-            window.location.href = `mailto:info@growingmissionariescentre.co.ke?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = `mailto:growingmissionaries32@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
             if (formStatus) {
                 formStatus.textContent = 'Your email app should open with the message ready to send.';
