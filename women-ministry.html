@@ -9,7 +9,7 @@
       content="Women's Ministry at GMC - Empowering women to live out their faith and impact their communities."
     />
     <meta name="theme-color" content="#0c0c14" />
-    <link rel="icon" type="image/png" href="Images/Logo.png" />
+    <link rel="icon" type="image/png" href="Images/Logo_opt.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -352,7 +352,7 @@
     <nav class="navbar" id="navbar">
       <div class="nav-container">
         <a href="index.html" class="nav-logo">
-          <img src="Images/Logo.png" alt="GMC Logo" class="logo-img" />
+          <img src="Images/Logo_opt.webp" alt="GMC Logo" class="logo-img" />
           <div class="logo-text">
             <span class="logo-title">Growing Missionaries</span>
             <span class="logo-subtitle">Centre</span>
@@ -419,6 +419,11 @@
             <a href="index.html#contact" class="nav-link nav-cta">Contact</a>
           </li>
         </ul>
+        <button class="theme-toggle" id="themeToggle" type="button"
+                aria-label="Toggle light/dark mode" title="Toggle theme">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+        </button>
       </div>
     </nav>
     <!-- BREADCRUMB -->
@@ -558,13 +563,19 @@
           </div>
           <!-- Ministry Gallery -->
           <div class="ministry-image-gallery">
-            <img
-              src="Images/ministries/womens ministry.JPG"
+            <picture>
+              <source srcset="Images/ministries/womens ministry_opt.webp" type="image/webp">
+              <img
+              src="Images/ministries/womens ministry_opt.jpg"
+            </picture>
               alt="Women's Ministry gathering"
               loading="lazy"
             />
-            <img
-              src="Images/ministries/women ministry 2.JPG"
+            <picture>
+              <source srcset="Images/ministries/women ministry 2_opt.webp" type="image/webp">
+              <img
+              src="Images/ministries/women ministry 2_opt.jpg"
+            </picture>
               alt="Women's Ministry fellowship"
               loading="lazy"
             />
@@ -603,7 +614,7 @@
       <div class="container">
         <div class="footer-grid">
           <div class="footer-brand">
-            <img src="Images/Logo.png" alt="GMC Logo" class="footer-logo" />
+            <img src="Images/Logo_opt.webp" alt="GMC Logo" class="footer-logo" />
             <h3>Growing Missionaries Centre</h3>
             <p>Rescue. Recover. Restore.</p>
             <p class="footer-address">

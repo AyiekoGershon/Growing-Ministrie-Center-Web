@@ -2,7 +2,37 @@
    GROWING MISSIONARIES CENTRE - Main JavaScript
    ============================================================ */
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
+    /* ── Copy-to-Clipboard (Give section) ── */
+    document.querySelectorAll('.copy-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var text = this.getAttribute('data-copy');
+            navigator.clipboard.writeText(text).then(function() {
+                this.classList.add('copied');
+                var icon = this.querySelector('i');
+                var origClass = icon.className;
+                icon.className = 'fas fa-check';
+                setTimeout(function() {
+                    this.classList.remove('copied');
+                    icon.className = origClass;
+                }.bind(this), 2000);
+            }.bind(this)).catch(function() {
+                var ta = document.createElement('textarea');
+                ta.value = text;
+                ta.style.position = 'fixed';
+                ta.style.opacity = '0';
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                document.body.removeChild(ta);
+                this.classList.add('copied');
+                setTimeout(function() {
+                    this.classList.remove('copied');
+                }.bind(this), 2000);
+            }.bind(this));
+        });
+    });
+
     const actionBar = document.getElementById('actionBar');
     const navbar = document.getElementById('navbar');
     const navToggle = document.getElementById('navToggle');
@@ -244,4 +274,25 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
+
+/* ── Theme Toggle ── */
+(function() {
+    const html = document.documentElement;
+    const saved = localStorage.getItem('gmc-theme');
+    if (saved === 'light') html.setAttribute('data-theme', 'light');
+
+    const toggle = document.getElementById('themeToggle');
+    if (toggle) {
+        toggle.addEventListener('click', function() {
+            const isLight = html.getAttribute('data-theme') === 'light';
+            if (isLight) {
+                html.removeAttribute('data-theme');
+                localStorage.setItem('gmc-theme', 'dark');
+            } else {
+                html.setAttribute('data-theme', 'light');
+                localStorage.setItem('gmc-theme', 'light');
+            }
+        });
+    }
+})();
 });
