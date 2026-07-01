@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className="relative h-screen w-full overflow-hidden bg-gmc-dark">
       <video autoPlay muted loop playsInline className="absolute inset-0 h-full w-full object-cover">
-        <source src="/videos/slide.mp4" type="video/mp4" />
+        <source src="https://res.cloudinary.com/dri60cqs8/video/upload/v1782900266/slide_ngo6lr.mp4" type="video/mp4" />
       </video>
 
       <div className="absolute inset-0 bg-gradient-to-br from-gmc-dark/80 via-gmc-dark/60 to-gmc-gold/15 z-10" />
